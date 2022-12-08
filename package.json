@@ -1,7 +1,7 @@
 {
   "name": "website",
   "version": "0.1.0",
-  "homepage": "{stanulet27.github.io/{website}" ,
+  "homepage": "stanulet27.github.io/website" ,
   "private": true,
   "dependencies": {
     "@sanity/client": "^3.4.1",
