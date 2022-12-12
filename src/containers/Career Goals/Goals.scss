@@ -1,11 +1,11 @@
-.app__about{
+.app__goals{
     flex: 1;
     width: 100%;
     flex-direction: column;
 
 }
 
-.app__profiles{
+.app__goal{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -14,7 +14,7 @@
     margin-top: 2rem;
 }
 
-.app__profile-item{
+.app__goal-item{
     width: 67%;
     display: flex;
     justify-content: flex-start;
