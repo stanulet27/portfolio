@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {motion} from 'framer-motion'
-import { urlFor,client } from '../../client';
+import { client } from '../../client';
 import { AppWrap, MotionWrap } from '../../wrapper';
 
 import "./About.scss"
@@ -34,6 +34,10 @@ useEffect(() => {
 
           <h2 className='bold-text' style={{marginTop:20}}>{about.title}</h2>
           <p className='p-text' style={{marginTop:10}}>{about.description}</p>
+          <br/>
+          <p className='p-text' style={{marginTop:10}}>{about.description2}</p>
+          <br/>
+          <p className='p-text' style={{marginTop:10}}>{about.description3}</p>
 
         </motion.div>
         )}
