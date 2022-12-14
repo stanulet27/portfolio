@@ -2,14 +2,15 @@ import React, {useState, useEffect} from 'react'
 import {SiGithub} from 'react-icons/si'
 import {motion} from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
-import { urlFor, client } from '../../client'
+import { client } from '../../client'
 import './Work.scss'
+import images from '../../constants/images'
 
 
 
 const Work = () => {
 
-  const [animateCard, setAnimateCard] = useState({y:0, opacity:1});
+  const [animateCard] = useState({y:0, opacity:1});
   const [works, setWorks] = useState([])
 
   useEffect(() => {
@@ -36,19 +37,21 @@ const Work = () => {
               <p className='p-text' style={{marginTop:10}}>{work.description}</p>
             </div>
             <div className='app__work-img app__flex'>
+
             <a href={work.codeLink} target="_blank" rel='noreferrer'>
+            <p className='p-text hover-text'>Click here to view code</p>
               <motion.div
                 whileHover={{opacity:[0,1]}}
                 transition={{diration:0.5, ease:'easeInOut', staggerChildren:0.5}}
                 className='app__work-hover app__flex'
               >
-
                 <motion.div
                   whileInView={{scale:[0,1]}}
                   whileHover={{scale:[1,0.9]}}
                   transition={{duration:0.25,}}
                   className='app__flex'
                 >
+
                   <SiGithub />
                 </motion.div>
 
