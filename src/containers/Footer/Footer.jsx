@@ -1,6 +1,8 @@
-import React, {useState, useEffect} from 'react'
-import {images} from '../../constants'
+import React, {useState} from 'react'
+
+
 import {AppWrap, MotionWrap} from '../../wrapper'
+import { SiTinyletter, SiWhatsapp } from "react-icons/si";
 import {client} from '../../client'
 
 
@@ -36,14 +38,14 @@ const Footer = () => {
   }
   return (
     <>
-      <h2 className='head-text'> Contact Me</h2>
+      <h2 className='head-text'> Contact <span>Me</span></h2>
       <div className='app__footer-cards'>
         <div className='app__footer-card'>
-          <img src={images.email} alt='email'/>
+          <SiTinyletter className='app__footer-icon'/>
           <a href='mailTo:stanulet.1@osu.edu' className='p-text'>stanulet.1@osu.edu</a>
         </div>
         <div className='app__footer-card'>
-          <img src={images.mobile} alt='cell'/>
+          <SiWhatsapp className='app__footer-icon'/>
           <a href='tel: +1 (440) 453-1860' className='p-text'>+1 (440) 453-1860</a>
         </div>
         
