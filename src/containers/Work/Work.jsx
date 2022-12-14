@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {AiFillGithub} from 'react-icons/ai'
+import {SiGithub} from 'react-icons/si'
 import {motion} from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import { urlFor, client } from '../../client'
@@ -46,10 +46,10 @@ const Work = () => {
                 <motion.div
                   whileInView={{scale:[0,1]}}
                   whileHover={{scale:[1,0.9]}}
-                  transition={{diration:0.25,}}
+                  transition={{duration:0.25,}}
                   className='app__flex'
                 >
-                  <AiFillGithub />
+                  <SiGithub />
                 </motion.div>
 
               </motion.div> 
