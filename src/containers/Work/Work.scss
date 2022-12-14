@@ -48,6 +48,8 @@
         border-radius: 0.5rem;
         object-fit: cover;
     }
+
+
     @media screen and (min-width:2000px) {
         height: 350px;
     }
@@ -96,5 +98,11 @@
     h4{
         margin-top: 1rem;
         line-height: 1.5;
+    }
+}
+.hover-out{
+    opacity: 1;
+    &:hover{
+        opacity: 0; 
     }
 }

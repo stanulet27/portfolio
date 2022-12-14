@@ -17,8 +17,8 @@ const Goals = () => {
   
   return (
     <>
-      <h2 className='head-text'>My Career
-        <span> Goals </span>
+      <h2 className='head-text'>My 
+        <span> Career Goals </span>
       </h2>
       <br/>
       <div className='app__goal'>

@@ -1,4 +1,4 @@
-import email from '../assets/email.png';
+import email from '../assets/email.jpg';
 import mobile from '../assets/mobile.png';
 import profile from '../assets/profile.png';
 import profile1 from '../assets/profile1.png';
