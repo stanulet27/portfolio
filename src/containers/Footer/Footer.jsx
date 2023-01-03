@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 
 import {AppWrap, MotionWrap} from '../../wrapper'
-import { SiTinyletter, SiWhatsapp } from "react-icons/si";
+import {HiOutlineMailOpen, HiPhone} from "react-icons/hi";
 import {client} from '../../client'
 
 
@@ -41,11 +41,11 @@ const Footer = () => {
       <h2 className='head-text'> Contact <span>Me</span></h2>
       <div className='app__footer-cards'>
         <div className='app__footer-card'>
-          <SiTinyletter className='app__footer-icon'/>
+          <HiOutlineMailOpen className='app__footer-icon'/>
           <a href='mailTo:stanulet.1@osu.edu' className='p-text'>stanulet.1@osu.edu</a>
         </div>
         <div className='app__footer-card'>
-          <SiWhatsapp className='app__footer-icon'/>
+          <HiPhone className='app__footer-icon'/>
           <a href='tel: +1 (440) 453-1860' className='p-text'>+1 (440) 453-1860</a>
         </div>
         
