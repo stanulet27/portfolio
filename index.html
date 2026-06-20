@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  This is the ONLY page of the site. Everything you see is below.
+  To change the WORDS on the site, edit the text in this file.
+  To change the LOOK (colors, fonts, spacing), edit style.css instead.
+  Nothing here needs to be "built" or compiled — it's just a web page.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chris Stanulet — ML Engineer</title>
+  <meta name="description" content="Chris Stanulet — ML engineer working between research and production on generative model safety." />
+
+  <link rel="icon" href="./favicon.ico" />
+
+  <!-- Fonts. This one line loads the three fonts from Google. If you ever want
+       different fonts, you can change them here and in style.css. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet" />
+
+  <!-- The stylesheet that controls how everything looks. -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+
+  <main id="top">
+
+    <!-- ===================== HERO (top of page) ===================== -->
+    <section class="hero">
+      <p class="eyebrow">ML Engineer · Research ↔ Production</p>
+      <h1 class="hero__name">Chris Stanulet</h1>
+      <p class="hero__subhead">
+        I work in the space between research and production, building generative
+        ML systems that hold up outside the lab.
+      </p>
+      <p class="hero__supporting">
+        MSCS @ Stanford · Diffusion model safety @ SIA Lab · Generative ML @ Nike Innovation
+      </p>
+      <p class="hero__ctas">
+        <a class="button" href="#work">See my work →</a>
+        <a class="button button--quiet" href="#resume">Resume →</a>
+        <a class="button button--quiet" href="#contact">Get in touch →</a>
+      </p>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about" class="section about">
+      <h2 class="section__title">About</h2>
+
+      <!-- The headshot. To swap it, replace assets/profile.jpg with your own photo
+           (keep the same filename, or change it here). -->
+
+      <p>Hi, I'm Chris.</p>
+
+      <p>
+        I'm a master's student in computer science at Stanford (AI track), where I
+        do research on diffusion model safety at the Safe and Intelligent Autonomy
+        Lab. My work focuses on making text-to-image models safer at inference time by
+        training classifiers that operate inside the model's latent space and using
+        them to steer generation away from harmful content without retraining the
+        model or degrading what it does well.
+      </p>
+
+      <p>
+        The thread running through my work is a preference for problems where the
+        research question and the engineering question are the same. A
+        safety classifier is only interesting if it's cheap enough to run on every
+        generation. A mesh reconstruction method is only useful if it survives
+        contact with a real benchmark. I like negative results with good
+        explanations, ablations that actually isolate the thing they claim to, and
+        pipelines that someone else could run.
+      </p>
+
+      <p>
+        Before Stanford, I spent two and a half years at Ohio State's AIMS Lab
+        working on computer vision and robotics, including a GPU-accelerated robotic
+        painting system with an AR interface and an FEM backed forging video game. 
+        This summer I'm doing ML at Nike Innovation in Beaverton.
+      </p>
+
+      <!-- <p>
+        Outside of work I shoot film on a Minolta X-700 I repaired myself, collect
+        vinyl, cook, run, and follow motorsport closely enough to have opinions about
+        tire strategy.
+      </p> -->
+
+      <h3 class="section__subtitle">What I'm working toward</h3>
+
+      <p>
+        The question that drives my work: how do we ship generative models that are
+        safe, fast, and reliable enough to trust in production? That means safety
+        mechanisms that compose with each other instead of competing, evaluation that
+        measures what actually matters, and systems efficient enough that doing the
+        right thing isn't a performance tax. Long-term, I want to lead technical work
+        at the boundary between research labs and shipped products, where the
+        interesting failures happen and where getting it right actually matters to
+        someone.
+      </p>
+    </section>
+
+    <!-- ===================== WORK ===================== -->
+    <!--
+      Each project is one <article class="project"> block.
+      To add a project, copy one block and change the words inside.
+    -->
+    <section id="work" class="section">
+      <h2 class="section__title">Featured work</h2>
+
+      <article class="project">
+        <p class="eyebrow">SIA Lab</p>
+        <h3 class="project__title">Latent Safety Classifier for Diffusion Models</h3>
+        <p>
+          Text-level prompt filters miss what diffusion models can produce from
+          innocuous-seeming inputs. I built a classifier that operates directly in
+          the model's latent space scoring the predicted denoised image at
+          intermediate timesteps to catch unsafe generations while they're still
+          forming. The classifier is trained on Re-LAION with soft labels distilled
+          from a CLIP teacher, and drives inference-time steering using gradient
+          guidance normalized against the noise prediction magnitude to stay stable
+          across prompts. The result is a cheap, selective safety layer that composes
+          with text-level filtering rather than replacing it, benchmarked against
+          Safe Latent Diffusion on both safety recall and image quality (FID against
+          COCO).
+        </p>
+        <ul class="tags">
+          <li>Diffusion models</li>
+          <li>Safety</li>
+          <li>Stable Diffusion</li>
+          <li>PyTorch</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <p class="eyebrow">Stanford · Deep RL</p>
+        <h3 class="project__title">Concept Erasure: Fine-tuning vs. RL</h3>
+        <p>
+          A head-to-head comparison of two ways to remove a concept from a
+          text-to-image model: direct fine-tuning (ESD) versus reinforcement learning
+          (DDPO with LoRA), using an ensemble of object detectors (YOLO, RT-DETR,
+          Faster R-CNN) as the reward signal. The headline finding: the RL approach
+          produces substantially stronger robustness to adversarial prompt attacks
+          (Ring-A-Bell), while careful reward design (PKPO) is what prevents the
+          policy from collapsing onto a single substitute concept. Training ran on
+          multi-GPU Modal infrastructure (H100s/A100s), which involved its own
+          education in NCCL deadlocks and checkpoint corruption.
+        </p>
+        <ul class="tags">
+          <li>RLHF / DDPO</li>
+          <li>Concept erasure</li>
+          <li>Adversarial robustness</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <p class="eyebrow">Stanford · CS231N</p>
+        <h3 class="project__title">Topological Regularization for Gaussian Splatting</h3>
+        <p>
+          Can persistent homology clean up floater artifacts in 3D Gaussian Splatting
+          mesh reconstruction? I added a topological loss (via TopologyLayer) to the
+          MILo/3DGS pipeline and evaluated on the DTU benchmark. The honest answer:
+          the H0 loss reduces connected-component counts but by <em>bridging</em>
+          floaters to the main mesh rather than collapsing them, which is cheaper for
+          the optimizer and useless for reconstruction quality. A negative result, but
+          with a mechanistic explanation of <em>why</em> the loss takes the shortcut
+          it does, which is worth more than a marginal metric bump.
+        </p>
+        <ul class="tags">
+          <li>3D Gaussian Splatting</li>
+          <li>Topological data analysis</li>
+          <li>Mesh reconstruction</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <p class="eyebrow">OSU AIMS Lab</p>
+        <h3 class="project__title">GPU-Accelerated Robotic Painting</h3>
+        <p>
+          A system for planning and simulating industrial spray-painting with robot
+          arms, with paint deposition simulated via GPU-accelerated ray casting in
+          NVIDIA Warp. I also built the augmented-reality interface that lets
+          non-programmer operators work with the system — viewing the robot's planned
+          path through a digital twin, seeing simulated paint directly on the part,
+          and defining collision zones by pointing at space instead of spending an
+          hour configuring them by hand. Second-author paper under review at IROS.
+        </p>
+        <ul class="tags">
+          <li>Robotics</li>
+          <li>NVIDIA Warp</li>
+          <li>AR / digital twins</li>
+          <li>Simulation</li>
+        </ul>
+      </article>
+
+      <!-- Smaller side projects: a lighter list, not full cards. -->
+      <h3 class="section__subtitle">Other work</h3>
+
+      <article class="project project--small">
+        <h4 class="project__title">NeoForge</h4>
+        <p>
+          An educational game where you play a fantasy blacksmith backed by a real
+          finite element simulation of metal deformation. Players get authentic
+          metalworking physics in a game loop; the game doubles as a data collection
+          tool for training RL models on manufacturing processes.
+        </p>
+      </article>
+
+      <article class="project project--small">
+        <h4 class="project__title">Music Library GNN Visualizer</h4>
+        <p>
+          A heterogeneous graph of my music library built from MusicBrainz metadata,
+          embedded with a GNN and projected with UMAP so I can see the actual
+          structure of my taste. Equal parts ML project and excuse to argue about
+          esoteric albums.
+        </p>
+      </article>
+    </section>
+
+    <!-- ===================== RESUME ===================== -->
+    <section id="resume" class="section">
+      <h2 class="section__title">Resume</h2>
+      <p>
+        A one-page summary of where I've been. For the longer version, the projects
+        above tell the better story.
+      </p>
+      <p>
+        <a class="button" href="./assets/Resume.pdf" download>Download resume (PDF) →</a>
+      </p>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <!--
+      EDIT ME: replace the placeholder email and the social links below with your
+      real ones. The text inside the quotes (href="...") is where the link goes;
+      the text between the tags is what shows on the page.
+    -->
+    <section id="contact" class="section">
+      <h2 class="section__title">Get in touch</h2>
+      <p>
+        If you're working on generative model safety, ML systems that have to survive
+        production, or anything in between — I'd genuinely like to hear about it.
+      </p>
+      <ul class="contact-links">
+        <li><a href="mailto:chrisstanulet@gmail.com">Email</a></li>
+        <li><a href="https://github.com/stanulet27">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/chrisstanulet/">LinkedIn</a></li>
+
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Chris Stanulet</p>
+  </footer>
+
+</body>
+</html>
